@@ -15,10 +15,7 @@ import gobject
 import math
 from time import strftime as timecode
 
-import pyportmidi
-
-import json
-
+from pygame import pypm
 
 class shape:
   def __init__(self, args):
@@ -164,21 +161,1330 @@ def calc_chord(n):
   return (["A","A#","B","C","C#","D","D#","E","F","F#","G","G#"])[(n+3)%12]+str(n/12-1)
 
 def read_keys():
-  try:
-    raw = open("keys.dat").readlines()
-  except:
-    print "Cannot open file keys.dat. Abort."
-    exit(1)
-  dat = ""
-  for i in raw:
-    dat+=i.strip()
 
-  obj = json.loads(dat)
+  return {
+  "A0":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 100,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A#0":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 99,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "B0":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 98,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 97,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C#1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 96,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 95,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D#1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 94,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "E1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 93,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 92,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F#1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 91,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 90,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G#1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 89,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 88,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A#1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 87,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "B1":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 86,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 85,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C#2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 84,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 83,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D#2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 82,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "E2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 81,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 80,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F#2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 79,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 78,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G#2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 77,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 76,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A#2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 75,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "B2":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 74,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 73,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C#3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 72,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 71,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D#3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 70,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "E3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 69,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 68,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F#3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 67,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 66,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G#3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 65,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 64,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A#3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 63,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "B3":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 62,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 61,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C#4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 60,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 59,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D#4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 58,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "E4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 57,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 56,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F#4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 55,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 54,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G#4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 53,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 52,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A#4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 51,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "B4":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 50,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 49,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C#5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 48,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 47,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D#5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 46,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "E5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 45,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 44,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F#5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 43,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 42,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G#5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 41,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 40,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A#5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 39,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "B5":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 38,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 37,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C#6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 36,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 35,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D#6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 34,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "E6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 33,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 32,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F#6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 31,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 30,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G#6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 29,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 28,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A#6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 27,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "B6":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 26,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 25,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C#7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 24,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 23,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "D#7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 22,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "E7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 21,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 20,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "F#7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 19,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 18,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "G#7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 17,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 16,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "A#7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 15,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "B7":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 14,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ],
+  "C8":
+  [
+    {
+      "type": "circle",
+      "center": [0, -0.5],
+      "size": 13,
+      "angle": [180, 0],
+      "line":
+      {
+        "color": "ffffff",
+        "width": 10
+      },
+      "fill": False
+    }
+  ]
+}
 
-  for i in obj:
-    obj[i] = note(obj[i])
-
-  return obj
 
 
 class Screen(gtk.DrawingArea):
@@ -193,11 +1499,11 @@ class Screen(gtk.DrawingArea):
     self.connect("expose-event", self.expose)
 
     # Init pyportmidi
-    pyportmidi.init()
-    count = pyportmidi.get_count()
+    pypm.Initialize()
+    count = pypm.CountDevices()
     devices = []
     for id in range(count):
-      dev = pyportmidi.get_device_info(id)
+      dev = pypm.GetDeviceInfo(id)
       if dev[2]:
         d = list(dev)
         d.append(id)
@@ -213,7 +1519,7 @@ class Screen(gtk.DrawingArea):
     dev = int(raw_input("Your choice: "))
 
     try:
-      self.dev = pyportmidi.Input(dev)
+      self.dev = pypm.Input(dev)
     except:
       print "Invalid ID or bad MIDI device."
       exit(1)
@@ -225,17 +1531,16 @@ class Screen(gtk.DrawingArea):
     gobject.timeout_add(0, self.expose_timeout)
 
   def midi_timeout(self):
-    if not self.dev.poll():
+    if not self.dev.Poll():
       gobject.timeout_add(10, self.midi_timeout)
       return
-    raw = self.dev.read(1)
+    raw = self.dev.Read(1)
     #~while raw:
       #~if raw[0][0][0] == 144:
         #~self.keys[calc_chord(raw[0][0][1])].switch(bool(raw[0][0][2]))
         #~raw = self.dev.read(1)
     if raw[0][0][0] == 144:
       self.keys[calc_chord(raw[0][0][1])].switch(bool(raw[0][0][2]))
-      raw = self.dev.read(1)
     gobject.timeout_add(0, self.midi_timeout)
     return
 
